@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const { prompt } = await req.json();
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
 
     // Gọi trực tiếp đến Google API bằng Fetch (Không cần thư viện ngoài)
     const response = await fetch(
@@ -31,4 +31,5 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Lỗi kết nối hệ thống" }, { status: 500 });
   }
 }
+
 
